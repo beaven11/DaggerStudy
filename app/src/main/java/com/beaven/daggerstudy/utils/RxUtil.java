@@ -52,4 +52,8 @@ public class RxUtil {
           return Flowable.empty();
         });
   }
+
+  public static <T> Flowable<T> create(Flowable<ApiResponse<T>> news) {
+    return news.compose(transformerResult()).compose(rxSchedulerHelper());
+  }
 }

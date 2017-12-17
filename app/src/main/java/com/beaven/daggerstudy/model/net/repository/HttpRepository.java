@@ -22,8 +22,6 @@ public class HttpRepository implements HttpHelper {
 
   @Override
   public Flowable<NewsResult> getNews(String type) {
-    return apiService.getNews(type)
-        .compose(RxUtil.transformerResult())
-        .compose(RxUtil.rxSchedulerHelper());
+    return RxUtil.create(apiService.getNews(type));
   }
 }
