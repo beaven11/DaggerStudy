@@ -4,11 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.beaven.news.view.MainActivity"
+    tools:context="com.beaven.daggerstudy.view.MainActivity"
     >
-  <android.support.v7.widget.RecyclerView
-      android:id="@+id/recycler_main"
+  <com.beaven.daggerstudy.widget.RefreshLayoutWrapper
+      android:id="@+id/refresh_layout"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      />
+      >
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+  </com.beaven.daggerstudy.widget.RefreshLayoutWrapper>
 </FrameLayout>

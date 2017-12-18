@@ -1,7 +1,6 @@
 package com.beaven.daggerstudy.base;
 
 import android.support.annotation.NonNull;
-
 import io.reactivex.disposables.CompositeDisposable;
 
 /**

@@ -3,6 +3,7 @@ package com.beaven.daggerstudy.presenter.main;
 import android.support.annotation.NonNull;
 import com.beaven.daggerstudy.base.BasePresenter;
 import com.beaven.daggerstudy.base.contract.MainContract;
+import com.beaven.daggerstudy.common.IPageControl;
 import com.beaven.daggerstudy.view.NewsActivity;
 import java.util.Arrays;
 import javax.inject.Inject;
@@ -21,24 +22,33 @@ public class MainPresenter extends BasePresenter<MainContract.View>
       { "top", "shehui", "guonei", "guoji", "yule", "tiyu", "junshi", "keji", "caijing" };
 
   private NewsTypeAdapter adapter;
+  private IPageControl pageControl;
 
   @Inject
-  public MainPresenter(@NonNull MainContract.View baseView, NewsTypeAdapter adapter) {
+  public MainPresenter(@NonNull MainContract.View baseView, NewsTypeAdapter adapter,
+      IPageControl pageControl) {
     super(baseView);
     this.adapter = adapter;
+    this.pageControl = pageControl;
   }
 
   @Override
   public void onCreate() {
     super.onCreate();
     baseView.setAdapter(adapter);
-    adapter.getNewsTypeList().clear();
-    adapter.getNewsTypeList().addAll(Arrays.asList(typeItems));
-    adapter.notifyDataSetChanged();
+    adapter.setList(Arrays.asList(typeItems));
   }
 
   @Override
   public void startNews(int position) {
     NewsActivity.start(baseView.getContext(), position);
+  }
+
+  @Override
+  public void updateNews() {
+    //List<String> stringList = Arrays.asList(typeItems);
+    System.out.println("获取到的pageIndex:" + pageControl.getNextPageIndex());
+    //adapter.autoUpdateList(stringList);
+    pageControl.updateError();
   }
 }

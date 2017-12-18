@@ -10,4 +10,5 @@ public class AppConfig {
   public static final int HTTP_TIMEOUT = 3;
   public static final String URL_BASE = "http://v.juhe.cn/";
   public static final String NET_TAG = "--Net--";
+  public static final int LIST_PAGE_SIZE = 16;
 }

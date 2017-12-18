@@ -1,6 +1,7 @@
 package com.beaven.daggerstudy.di.module;
 
 import com.beaven.daggerstudy.base.contract.MainContract;
+import com.beaven.daggerstudy.common.IPageControl;
 import com.beaven.daggerstudy.di.scope.ActivityScope;
 import com.beaven.daggerstudy.presenter.main.MainPresenter;
 import com.beaven.daggerstudy.presenter.main.NewsTypeAdapter;
@@ -24,9 +25,11 @@ public class MainModule {
   }
 
   private final MainContract.View view;
+  private final IPageControl pageControl;
 
-  public MainModule(MainContract.View view) {
+  public MainModule(MainContract.View view, IPageControl pageControl) {
     this.view = view;
+    this.pageControl = pageControl;
   }
 
   @Provides
@@ -35,7 +38,12 @@ public class MainModule {
   }
 
   @Provides
-  public NewsTypeAdapter provideAdapter(MainContract.View view) {
-    return new NewsTypeAdapter(view, new ArrayList<>());
+  public IPageControl providePageControl() {
+    return pageControl;
+  }
+
+  @Provides
+  public NewsTypeAdapter provideAdapter(MainContract.View view, IPageControl pageControl) {
+    return new NewsTypeAdapter(view, new ArrayList<>(), pageControl);
   }
 }

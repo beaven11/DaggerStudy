@@ -7,15 +7,21 @@ import butterknife.BindView;
 import com.beaven.daggerstudy.R;
 import com.beaven.daggerstudy.base.BasePresenterActivity;
 import com.beaven.daggerstudy.base.contract.MainContract;
+import com.beaven.daggerstudy.common.AbsOnRefreshLoadMoreListener;
 import com.beaven.daggerstudy.di.component.AppComponent;
 import com.beaven.daggerstudy.di.component.DaggerMainComponent;
 import com.beaven.daggerstudy.di.module.MainModule;
+import com.beaven.daggerstudy.widget.RefreshLayoutWrapper;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
 
 public class MainActivity extends BasePresenterActivity<MainContract.Presenter>
     implements MainContract.View {
 
   @BindView(R.id.recycler_main)
   RecyclerView recycler;
+
+  @BindView(R.id.refresh_layout)
+  RefreshLayoutWrapper refreshLayout;
 
   @Override
   protected int contentId() {
@@ -36,7 +42,7 @@ public class MainActivity extends BasePresenterActivity<MainContract.Presenter>
   protected void inject(AppComponent appComponent) {
     DaggerMainComponent.builder()
         .appComponent(appComponent)
-        .mainModule(new MainModule(this))
+        .mainModule(new MainModule(this, refreshLayout))
         .build()
         .inject(this);
   }
@@ -44,6 +50,12 @@ public class MainActivity extends BasePresenterActivity<MainContract.Presenter>
   @Override
   protected void initView() {
     setTitleText(getResources().getString(R.string.news));
+    refreshLayout.setOnRefreshLoadmoreListener(new AbsOnRefreshLoadMoreListener() {
+      @Override
+      public void update(RefreshLayout refreshLayout) {
+        presenter.updateNews();
+      }
+    });
   }
 
   @Override

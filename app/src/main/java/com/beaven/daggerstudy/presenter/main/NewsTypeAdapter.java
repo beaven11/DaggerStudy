@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import com.beaven.daggerstudy.R;
 import com.beaven.daggerstudy.base.contract.MainContract;
+import com.beaven.daggerstudy.common.IPageControl;
+import com.beaven.daggerstudy.widget.RefreshLayoutWrapper;
 import java.util.List;
 
 /**
@@ -19,14 +21,37 @@ public class NewsTypeAdapter extends RecyclerView.Adapter<NewsTypeAdapter.NewsTy
 
   private List<String> newsTypeList;
   private MainContract.View mainView;
+  private IPageControl pageControl;
 
-  public NewsTypeAdapter(MainContract.View mainView, List<String> newsTypeList) {
+  public NewsTypeAdapter(MainContract.View mainView, List<String> newsTypeList,
+      IPageControl pageControl) {
     this.mainView = mainView;
     this.newsTypeList = newsTypeList;
+    this.pageControl = pageControl;
   }
 
-  public List<String> getNewsTypeList() {
-    return newsTypeList;
+  public void setList(List<String> list) {
+    newsTypeList.clear();
+    newsTypeList.addAll(list);
+    notifyDataSetChanged();
+  }
+
+  public void addList(List<String> list) {
+    newsTypeList.addAll(list);
+    notifyDataSetChanged();
+  }
+
+  public void autoUpdateList(List<String> list) {
+    if (pageControl == null) {
+      throw new IllegalStateException("pageControl must be set");
+    }
+    pageControl.updateSuccess(list);
+    int states = pageControl.getRefreshStates();
+    if (states == RefreshLayoutWrapper.REFRESH_LOADING) {
+      addList(list);
+    } else if (states == RefreshLayoutWrapper.REFRESH_REFRESHING) {
+      setList(list);
+    }
   }
 
   @Override

@@ -20,5 +20,7 @@ public interface MainContract {
   interface Presenter extends BaseContract.Presenter {
 
     void startNews(int position);
+
+    void updateNews();
   }
 }
