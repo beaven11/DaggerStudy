@@ -133,6 +133,9 @@ public class RefreshLayoutWrapper extends SmartRefreshLayout implements IPageCon
     }
   }
 
+  /**
+   * 当前页面索引更新
+   */
   private void updateCurrentPageIndex() {
     this.currentPageIndex = this.prePageIndex;
     this.prePageIndex = NONE_PRE_PAGE_INDEX;

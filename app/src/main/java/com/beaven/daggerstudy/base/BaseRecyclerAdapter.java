@@ -41,6 +41,11 @@ public abstract class BaseRecyclerAdapter<T, VH extends BaseViewHolder<T>>
     notifyDataSetChanged();
   }
 
+  /**
+   * 自动更新列表集合，根据当前刷新状态判断进行刷新或加载操作
+   *
+   * @param list 更新数据集合
+   */
   @Override
   public void autoUpdateList(List<T> list) {
     if (pageControl == null) {
