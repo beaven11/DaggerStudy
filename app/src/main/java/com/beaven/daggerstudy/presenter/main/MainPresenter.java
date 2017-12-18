@@ -6,6 +6,7 @@ import com.beaven.daggerstudy.base.contract.MainContract;
 import com.beaven.daggerstudy.common.IPageControl;
 import com.beaven.daggerstudy.view.NewsActivity;
 import java.util.Arrays;
+import java.util.List;
 import javax.inject.Inject;
 
 /**
@@ -46,9 +47,9 @@ public class MainPresenter extends BasePresenter<MainContract.View>
 
   @Override
   public void updateNews() {
-    //List<String> stringList = Arrays.asList(typeItems);
     System.out.println("获取到的pageIndex:" + pageControl.getNextPageIndex());
-    //adapter.autoUpdateList(stringList);
-    pageControl.updateError();
+    List<String> stringList = Arrays.asList(typeItems);
+    adapter.autoUpdateList(stringList);
+    //pageControl.updateError();
   }
 }
