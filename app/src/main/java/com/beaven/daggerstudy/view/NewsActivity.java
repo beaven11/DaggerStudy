@@ -38,6 +38,7 @@ public class NewsActivity extends BasePresenterActivity<NewsContract.Presenter>
   @Override
   protected void initData() {
     index = getIntent().getIntExtra(NEWS_TYPE_INDEX, 0);
+    index = index % MainPresenter.typeQuerys.length;
   }
 
   @Override
