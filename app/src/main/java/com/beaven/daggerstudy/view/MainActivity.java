@@ -3,7 +3,9 @@ package com.beaven.daggerstudy.view;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import butterknife.BindView;
+import butterknife.OnClick;
 import com.beaven.daggerstudy.R;
 import com.beaven.daggerstudy.base.BasePresenterActivity;
 import com.beaven.daggerstudy.base.contract.MainContract;
@@ -11,7 +13,9 @@ import com.beaven.daggerstudy.common.AbsOnRefreshLoadMoreListener;
 import com.beaven.daggerstudy.di.component.AppComponent;
 import com.beaven.daggerstudy.di.component.DaggerMainComponent;
 import com.beaven.daggerstudy.di.module.MainModule;
+import com.beaven.daggerstudy.widget.MultipleStatusView;
 import com.beaven.daggerstudy.widget.RefreshLayoutWrapper;
+import com.beaven.daggerstudy.widget.dialog.DialogLoading;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 
 public class MainActivity extends BasePresenterActivity<MainContract.Presenter>
@@ -22,6 +26,9 @@ public class MainActivity extends BasePresenterActivity<MainContract.Presenter>
 
   @BindView(R.id.refresh_layout)
   RefreshLayoutWrapper refreshLayout;
+
+  @BindView(R.id.status_view)
+  MultipleStatusView statusView;
 
   @Override
   protected int contentId() {
@@ -69,5 +76,27 @@ public class MainActivity extends BasePresenterActivity<MainContract.Presenter>
   @Override
   public void startNews(int position) {
     presenter.startNews(position);
+  }
+
+  @OnClick({ R.id.button_content, R.id.button_empty, R.id.button_error, R.id.button_loading })
+  public void onClick(View view) {
+    int id = view.getId();
+    switch (id) {
+      case R.id.button_content:
+        statusView.showContent();
+        break;
+      case R.id.button_empty:
+        statusView.showEmpty();
+        break;
+      case R.id.button_error:
+        statusView.showError();
+        break;
+      case R.id.button_loading:
+        //statusView.showLoading();
+        DialogLoading.dialogLoading().show(this);
+        break;
+      default:
+        break;
+    }
   }
 }

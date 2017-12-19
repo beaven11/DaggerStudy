@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <declare-styleable name="MultipleStatusView">
+    <attr format="reference" name="loadingView"/>
+    <attr format="reference" name="errorView"/>
+    <attr format="reference" name="emptyView"/>
+  </declare-styleable>
+
+  <declare-styleable name="AVLoadingIndicatorView">
+    <attr format="dimension" name="minWidth"/>
+    <attr format="dimension" name="maxWidth"/>
+    <attr format="dimension" name="minHeight"/>
+    <attr format="dimension" name="maxHeight"/>
+    <attr format="string" name="indicatorName"/>
+    <attr format="color" name="indicatorColor"/>
+  </declare-styleable>
+</resources>
