@@ -1,10 +1,13 @@
 package com.beaven.daggerstudy.presenter.main;
 
 import android.support.annotation.NonNull;
+import android.view.View;
 import com.beaven.daggerstudy.base.BasePresenter;
+import com.beaven.daggerstudy.base.BaseRecyclerAdapter;
 import com.beaven.daggerstudy.base.contract.MainContract;
 import com.beaven.daggerstudy.common.IPageControl;
 import com.beaven.daggerstudy.view.NewsActivity;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import javax.inject.Inject;
@@ -37,7 +40,8 @@ public class MainPresenter extends BasePresenter<MainContract.View>
   public void onCreate() {
     super.onCreate();
     baseView.setAdapter(adapter);
-    adapter.setList(Arrays.asList(typeItems));
+    adapter.setList(getTypeList());
+    adapter.setItemClickListener((view, position) -> NewsActivity.start(getContext(), position));
   }
 
   @Override
@@ -48,8 +52,17 @@ public class MainPresenter extends BasePresenter<MainContract.View>
   @Override
   public void updateNews() {
     System.out.println("获取到的pageIndex:" + pageControl.getNextPageIndex());
-    List<String> stringList = Arrays.asList(typeItems);
-    adapter.autoUpdateList(stringList);
+    adapter.autoUpdateList(getTypeList());
     //pageControl.updateError();
+  }
+
+  private List<NewsType> getTypeList() {
+    List<NewsType> typeList = new ArrayList<>();
+    for (String ss : typeItems) {
+      NewsType newsType = new NewsType();
+      newsType.setType(ss);
+      typeList.add(newsType);
+    }
+    return typeList;
   }
 }

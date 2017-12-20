@@ -1,5 +1,6 @@
 package com.beaven.daggerstudy.base;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 import io.reactivex.disposables.CompositeDisposable;
 
@@ -36,5 +37,10 @@ public abstract class BasePresenter<V extends BaseContract.View> implements Base
   @Override
   public void onDestroy() {
     disposable.clear();
+  }
+
+  @Override
+  public Context getContext() {
+    return baseView.getContext();
   }
 }

@@ -8,7 +8,6 @@ import com.beaven.daggerstudy.presenter.main.NewsTypeAdapter;
 import dagger.Binds;
 import dagger.Module;
 import dagger.Provides;
-import java.util.ArrayList;
 
 /**
  * @author : Beaven
@@ -43,7 +42,7 @@ public class MainModule {
   }
 
   @Provides
-  public NewsTypeAdapter provideAdapter(MainContract.View view, IPageControl pageControl) {
-    return new NewsTypeAdapter(view, new ArrayList<>(), pageControl);
+  public NewsTypeAdapter provideAdapter(IPageControl pageControl) {
+    return new NewsTypeAdapter(pageControl);
   }
 }

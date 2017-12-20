@@ -33,5 +33,7 @@ public interface BaseContract {
     void onPause();
 
     void onDestroy();
+
+    Context getContext();
   }
 }
