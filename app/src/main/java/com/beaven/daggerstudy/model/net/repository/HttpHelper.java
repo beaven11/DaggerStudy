@@ -9,5 +9,5 @@ import io.reactivex.Flowable;
  */
 
 public interface HttpHelper {
-  Flowable<NewsResult> getNews(String type);
+    Flowable<NewsResult> getNews(String type);
 }

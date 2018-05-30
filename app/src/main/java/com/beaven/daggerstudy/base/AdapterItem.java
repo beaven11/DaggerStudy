@@ -7,5 +7,5 @@ package com.beaven.daggerstudy.base;
 
 public interface AdapterItem {
 
-  int getAdapterItemType();
+    int getAdapterItemType();
 }

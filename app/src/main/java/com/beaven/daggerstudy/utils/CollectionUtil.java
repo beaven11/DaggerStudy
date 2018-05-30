@@ -9,7 +9,7 @@ import java.util.List;
 
 public class CollectionUtil {
 
-  public static boolean isNullOrEmpty(List<?> list) {
-    return list == null || list.isEmpty();
-  }
+    public static boolean isNullOrEmpty(List<?> list) {
+        return list == null || list.isEmpty();
+    }
 }

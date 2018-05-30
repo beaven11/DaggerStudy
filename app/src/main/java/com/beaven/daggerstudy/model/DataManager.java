@@ -11,14 +11,14 @@ import io.reactivex.Flowable;
 
 public class DataManager implements HttpHelper {
 
-  private final HttpHelper httpHelper;
+    private final HttpHelper httpHelper;
 
-  public DataManager(HttpHelper httpHelper) {
-    this.httpHelper = httpHelper;
-  }
+    public DataManager(HttpHelper httpHelper) {
+        this.httpHelper = httpHelper;
+    }
 
-  @Override
-  public Flowable<NewsResult> getNews(String type) {
-    return httpHelper.getNews(type);
-  }
+    @Override
+    public Flowable<NewsResult> getNews(String type) {
+        return httpHelper.getNews(type);
+    }
 }

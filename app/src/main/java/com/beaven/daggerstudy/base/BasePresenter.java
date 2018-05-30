@@ -11,36 +11,36 @@ import io.reactivex.disposables.CompositeDisposable;
 
 public abstract class BasePresenter<V extends BaseContract.View> implements BaseContract.Presenter {
 
-  protected final V baseView;
-  protected final CompositeDisposable disposable;
+    protected final V baseView;
+    protected final CompositeDisposable disposable;
 
-  public BasePresenter(@NonNull V baseView) {
-    this.baseView = baseView;
-    this.disposable = new CompositeDisposable();
-  }
+    public BasePresenter(@NonNull V baseView) {
+        this.baseView = baseView;
+        this.disposable = new CompositeDisposable();
+    }
 
-  @Override
-  public void onCreate() {
+    @Override
+    public void onCreate() {
 
-  }
+    }
 
-  @Override
-  public void onResume() {
+    @Override
+    public void onResume() {
 
-  }
+    }
 
-  @Override
-  public void onPause() {
+    @Override
+    public void onPause() {
 
-  }
+    }
 
-  @Override
-  public void onDestroy() {
-    disposable.clear();
-  }
+    @Override
+    public void onDestroy() {
+        disposable.clear();
+    }
 
-  @Override
-  public Context getContext() {
-    return baseView.getContext();
-  }
+    @Override
+    public Context getContext() {
+        return baseView.getContext();
+    }
 }

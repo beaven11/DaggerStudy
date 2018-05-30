@@ -13,15 +13,15 @@ import javax.inject.Inject;
 
 public class HttpRepository implements HttpHelper {
 
-  private final ApiService apiService;
+    private final ApiService apiService;
 
-  @Inject
-  public HttpRepository(ApiService apiService) {
-    this.apiService = apiService;
-  }
+    @Inject
+    public HttpRepository(ApiService apiService) {
+        this.apiService = apiService;
+    }
 
-  @Override
-  public Flowable<NewsResult> getNews(String type) {
-    return RxUtil.create(apiService.getNews(type));
-  }
+    @Override
+    public Flowable<NewsResult> getNews(String type) {
+        return RxUtil.create(apiService.getNews(type));
+    }
 }

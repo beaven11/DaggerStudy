@@ -11,19 +11,19 @@ import com.scwang.smartrefresh.layout.listener.OnRefreshLoadmoreListener;
 
 public abstract class AbsOnRefreshLoadMoreListener implements OnRefreshLoadmoreListener {
 
-  @Override
-  public void onRefresh(RefreshLayout refreshlayout) {
-    RefreshLayoutWrapper refreshLayoutWrapper = (RefreshLayoutWrapper) refreshlayout;
-    refreshLayoutWrapper.resetPageIndex();
-    update(refreshlayout);
-  }
+    @Override
+    public void onRefresh(RefreshLayout refreshlayout) {
+        RefreshLayoutWrapper refreshLayoutWrapper = (RefreshLayoutWrapper) refreshlayout;
+        refreshLayoutWrapper.resetPageIndex();
+        update(refreshlayout);
+    }
 
-  @Override
-  public void onLoadmore(RefreshLayout refreshlayout) {
-    RefreshLayoutWrapper refreshLayoutWrapper = (RefreshLayoutWrapper) refreshlayout;
-    refreshLayoutWrapper.loadNextPageIndex();
-    update(refreshlayout);
-  }
+    @Override
+    public void onLoadmore(RefreshLayout refreshlayout) {
+        RefreshLayoutWrapper refreshLayoutWrapper = (RefreshLayoutWrapper) refreshlayout;
+        refreshLayoutWrapper.loadNextPageIndex();
+        update(refreshlayout);
+    }
 
-  public abstract void update(RefreshLayout refreshLayout);
+    public abstract void update(RefreshLayout refreshLayout);
 }

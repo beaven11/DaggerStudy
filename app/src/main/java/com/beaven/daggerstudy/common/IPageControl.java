@@ -9,15 +9,15 @@ import java.util.List;
 
 public interface IPageControl {
 
-  void resetPageIndex();
+    void resetPageIndex();
 
-  void loadNextPageIndex();
+    void loadNextPageIndex();
 
-  int getNextPageIndex();
+    int getNextPageIndex();
 
-  int getRefreshStates();
+    int getRefreshStates();
 
-  void updateSuccess(List<?> list);
+    void updateSuccess(List<?> list);
 
-  void updateError();
+    void updateError();
 }

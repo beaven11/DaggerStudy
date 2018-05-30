@@ -11,11 +11,11 @@ import com.beaven.daggerstudy.app.GlideApp;
 
 public class ImageUtil {
 
-  public static void load(String url, ImageView imageView) {
-    GlideApp.with(imageView.getContext())
-        .load(url)
-        .placeholder(R.mipmap.ic_launcher)
-        .error(R.mipmap.ic_launcher)
-        .into(imageView);
-  }
+    public static void load(String url, ImageView imageView) {
+        GlideApp.with(imageView.getContext())
+                .load(url)
+                .placeholder(R.mipmap.ic_launcher)
+                .error(R.mipmap.ic_launcher)
+                .into(imageView);
+    }
 }

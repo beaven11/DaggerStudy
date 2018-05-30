@@ -18,48 +18,48 @@ import java.util.List;
 
 public class NewsResultAdapter extends RecyclerView.Adapter<NewsResultAdapter.NewsResultHolder> {
 
-  private List<NewsData> dataList;
+    private List<NewsData> dataList;
 
-  public NewsResultAdapter(List<NewsData> dataList) {
-    this.dataList = dataList;
-  }
-
-  public List<NewsData> getDataList() {
-    return dataList;
-  }
-
-  @Override
-  public NewsResultHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-
-    View view =
-        LayoutInflater.from(parent.getContext()).inflate(R.layout.item_news_result, parent, false);
-    return new NewsResultHolder(view);
-  }
-
-  @Override
-  public void onBindViewHolder(NewsResultHolder holder, int position) {
-    NewsData newsData = dataList.get(position);
-    if (newsData == null) {
-      return;
+    public NewsResultAdapter(List<NewsData> dataList) {
+        this.dataList = dataList;
     }
-    holder.textNewsResult.setText(newsData.getTitle());
-    ImageUtil.load(newsData.getPicOne(), holder.imageNewsResult);
-  }
 
-  @Override
-  public int getItemCount() {
-    return dataList == null ? 0 : dataList.size();
-  }
-
-  static class NewsResultHolder extends RecyclerView.ViewHolder {
-
-    ImageView imageNewsResult;
-    TextView textNewsResult;
-
-    public NewsResultHolder(View itemView) {
-      super(itemView);
-      imageNewsResult = itemView.findViewById(R.id.image_news_result_item);
-      textNewsResult = itemView.findViewById(R.id.text_news_result_item);
+    public List<NewsData> getDataList() {
+        return dataList;
     }
-  }
+
+    @Override
+    public NewsResultHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.item_news_result, parent, false);
+        return new NewsResultHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(NewsResultHolder holder, int position) {
+        NewsData newsData = dataList.get(position);
+        if (newsData == null) {
+            return;
+        }
+        holder.textNewsResult.setText(newsData.getTitle());
+        ImageUtil.load(newsData.getPicOne(), holder.imageNewsResult);
+    }
+
+    @Override
+    public int getItemCount() {
+        return dataList == null ? 0 : dataList.size();
+    }
+
+    static class NewsResultHolder extends RecyclerView.ViewHolder {
+
+        ImageView imageNewsResult;
+        TextView textNewsResult;
+
+        public NewsResultHolder(View itemView) {
+            super(itemView);
+            imageNewsResult = itemView.findViewById(R.id.image_news_result_item);
+            textNewsResult = itemView.findViewById(R.id.text_news_result_item);
+        }
+    }
 }

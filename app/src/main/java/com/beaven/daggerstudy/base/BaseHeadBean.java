@@ -7,8 +7,8 @@ package com.beaven.daggerstudy.base;
 
 public abstract class BaseHeadBean implements AdapterItem {
 
-  @Override
-  public int getAdapterItemType() {
-    return 0;
-  }
+    @Override
+    public int getAdapterItemType() {
+        return 0;
+    }
 }

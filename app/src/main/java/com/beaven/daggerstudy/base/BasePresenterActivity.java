@@ -14,82 +14,82 @@ import javax.inject.Inject;
  */
 
 public abstract class BasePresenterActivity<T extends BaseContract.Presenter> extends BaseActivity
-    implements BaseContract.View {
+        implements BaseContract.View {
 
-  @Inject
-  protected T presenter;
+    @Inject
+    protected T presenter;
 
-  @Override
-  protected void onCreate(@Nullable Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    initData();
-    inject(BaseApp.getAppComponent());
-    initView();
-    presenter.onCreate();
-  }
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        initData();
+        inject(BaseApp.getAppComponent());
+        initView();
+        presenter.onCreate();
+    }
 
-  @Override
-  protected void onResume() {
-    super.onResume();
-    presenter.onResume();
-  }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        presenter.onResume();
+    }
 
-  @Override
-  protected void onPause() {
-    super.onPause();
-    presenter.onPause();
-  }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        presenter.onPause();
+    }
 
-  @Override
-  protected void onDestroy() {
-    super.onDestroy();
-    presenter.onDestroy();
-  }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        presenter.onDestroy();
+    }
 
-  /**
-   * 初始化Data
-   */
-  protected abstract void initData();
+    /**
+     * 初始化Data
+     */
+    protected abstract void initData();
 
-  /**
-   * 依赖注入
-   *
-   * @param appComponent 全局Component
-   */
-  protected abstract void inject(AppComponent appComponent);
+    /**
+     * 依赖注入
+     *
+     * @param appComponent 全局Component
+     */
+    protected abstract void inject(AppComponent appComponent);
 
-  /**
-   * 初始化View
-   */
-  protected abstract void initView();
+    /**
+     * 初始化View
+     */
+    protected abstract void initView();
 
-  @Override
-  public void showToast(String msg) {
-    Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
-  }
+    @Override
+    public void showToast(String msg) {
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+    }
 
-  @Override
-  public void showContentEmpty() {
+    @Override
+    public void showContentEmpty() {
 
-  }
+    }
 
-  @Override
-  public void showContentError() {
+    @Override
+    public void showContentError() {
 
-  }
+    }
 
-  @Override
-  public void showLoading(String msg) {
+    @Override
+    public void showLoading(String msg) {
 
-  }
+    }
 
-  @Override
-  public void showContent() {
+    @Override
+    public void showContent() {
 
-  }
+    }
 
-  @Override
-  public Context getContext() {
-    return this;
-  }
+    @Override
+    public Context getContext() {
+        return this;
+    }
 }

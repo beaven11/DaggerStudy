@@ -7,12 +7,9 @@ import com.beaven.daggerstudy.model.DataManager;
 import com.beaven.daggerstudy.model.bean.NewsData;
 import com.beaven.daggerstudy.model.bean.NewsResult;
 import com.beaven.daggerstudy.model.net.codes.ApiSubscriber;
-import io.reactivex.functions.Action;
-import io.reactivex.functions.Consumer;
 import java.util.List;
 import javax.inject.Inject;
 import javax.inject.Named;
-import org.reactivestreams.Subscription;
 
 /**
  * @author : Beaven

@@ -15,7 +15,7 @@ import javax.inject.Singleton;
 @Component(modules = { AppModule.class, NetModule.class })
 public interface AppComponent {
 
-  Application getApplicationContext();
+    Application getApplicationContext();
 
-  DataManager getDataManager();
+    DataManager getDataManager();
 }

@@ -15,37 +15,38 @@ import retrofit2.HttpException;
 
 public abstract class ApiSubscriber<T> extends ResourceSubscriber<T> {
 
-  private static final String TAG = AppConfig.NET_TAG;
+    private static final String TAG = AppConfig.NET_TAG;
 
-  private BaseContract.View baseView;
+    private BaseContract.View baseView;
 
-  protected ApiSubscriber(@NonNull BaseContract.View baseView) {
-    this.baseView = baseView;
-  }
-
-  @Override
-  public void onNext(T t) {
-
-  }
-
-  @Override
-  public void onError(Throwable t) {
-    Log.e(TAG, "onError: ", t);
-    if (baseView == null) {
-      return;
+    protected ApiSubscriber(@NonNull BaseContract.View baseView) {
+        this.baseView = baseView;
     }
-    if (t instanceof ApiException) {
-      baseView.showToast(t.getMessage());
-    } else if (t instanceof HttpException) {
-      baseView.showToast(baseView.getContext().getResources().getString(R.string.exception_http));
-    } else {
-      baseView.showToast(
-          baseView.getContext().getResources().getString(R.string.exception_unknown));
+
+    @Override
+    public void onNext(T t) {
+
     }
-  }
 
-  @Override
-  public void onComplete() {
+    @Override
+    public void onError(Throwable t) {
+        Log.e(TAG, "onError: ", t);
+        if (baseView == null) {
+            return;
+        }
+        if (t instanceof ApiException) {
+            baseView.showToast(t.getMessage());
+        } else if (t instanceof HttpException) {
+            baseView.showToast(
+                    baseView.getContext().getResources().getString(R.string.exception_http));
+        } else {
+            baseView.showToast(
+                    baseView.getContext().getResources().getString(R.string.exception_unknown));
+        }
+    }
 
-  }
+    @Override
+    public void onComplete() {
+
+    }
 }

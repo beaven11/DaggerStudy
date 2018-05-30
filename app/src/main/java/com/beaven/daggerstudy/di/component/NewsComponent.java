@@ -13,5 +13,5 @@ import dagger.Component;
 @Component(modules = NewsModule.class, dependencies = AppComponent.class)
 public interface NewsComponent {
 
-  void inject(NewsActivity activity);
+    void inject(NewsActivity activity);
 }

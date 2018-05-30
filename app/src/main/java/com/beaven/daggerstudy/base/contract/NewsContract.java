@@ -10,13 +10,13 @@ import com.beaven.daggerstudy.base.BaseContract;
 
 public interface NewsContract {
 
-  interface View extends BaseContract.View {
+    interface View extends BaseContract.View {
 
-    void setAdapter(RecyclerView.Adapter adapter);
-  }
+        void setAdapter(RecyclerView.Adapter adapter);
+    }
 
-  interface Presenter extends BaseContract.Presenter {
+    interface Presenter extends BaseContract.Presenter {
 
-    void loadNews();
-  }
+        void loadNews();
+    }
 }

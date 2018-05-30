@@ -13,36 +13,38 @@ import dagger.Provides;
  * @author : Beaven
  * @time : 2017/12/9 15:57
  */
-@ActivityScope
 @Module(includes = MainModule.Presenter.class)
 public class MainModule {
 
-  @Module
-  public interface Presenter {
-    @Binds
-    MainContract.Presenter bindPresnter(MainPresenter mainPresenter);
-  }
+    @Module
+    public interface Presenter {
+        @Binds
+        MainContract.Presenter bindPresnter(MainPresenter mainPresenter);
+    }
 
-  private final MainContract.View view;
-  private final IPageControl pageControl;
+    private final MainContract.View view;
+    private final IPageControl pageControl;
 
-  public MainModule(MainContract.View view, IPageControl pageControl) {
-    this.view = view;
-    this.pageControl = pageControl;
-  }
+    public MainModule(MainContract.View view, IPageControl pageControl) {
+        this.view = view;
+        this.pageControl = pageControl;
+    }
 
-  @Provides
-  public MainContract.View provideMainView() {
-    return view;
-  }
+    @ActivityScope
+    @Provides
+    public MainContract.View provideMainView() {
+        return view;
+    }
 
-  @Provides
-  public IPageControl providePageControl() {
-    return pageControl;
-  }
+    @ActivityScope
+    @Provides
+    public IPageControl providePageControl() {
+        return pageControl;
+    }
 
-  @Provides
-  public NewsTypeAdapter provideAdapter(IPageControl pageControl) {
-    return new NewsTypeAdapter(pageControl);
-  }
+    @ActivityScope
+    @Provides
+    public NewsTypeAdapter provideAdapter(IPageControl pageControl) {
+        return new NewsTypeAdapter(pageControl);
+    }
 }

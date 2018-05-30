@@ -9,18 +9,18 @@ import com.beaven.daggerstudy.base.AdapterItem;
 
 public class NewsType implements AdapterItem {
 
-  private String type;
+    private String type;
 
-  public String getType() {
-    return type;
-  }
+    public String getType() {
+        return type;
+    }
 
-  public void setType(String type) {
-    this.type = type;
-  }
+    public void setType(String type) {
+        this.type = type;
+    }
 
-  @Override
-  public int getAdapterItemType() {
-    return 0;
-  }
+    @Override
+    public int getAdapterItemType() {
+        return 0;
+    }
 }

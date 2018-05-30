@@ -14,27 +14,27 @@ import javax.inject.Singleton;
  */
 @Module
 public class AppModule {
-  private final Application application;
+    private final Application application;
 
-  public AppModule(Application application) {
-    this.application = application;
-  }
+    public AppModule(Application application) {
+        this.application = application;
+    }
 
-  @Singleton
-  @Provides
-  public Application provideApplication() {
-    return application;
-  }
+    @Singleton
+    @Provides
+    public Application provideApplication() {
+        return application;
+    }
 
-  @Singleton
-  @Provides
-  HttpHelper provideHttpHelper(HttpRepository httpRepository) {
-    return httpRepository;
-  }
+    @Singleton
+    @Provides
+    HttpHelper provideHttpHelper(HttpRepository httpRepository) {
+        return httpRepository;
+    }
 
-  @Singleton
-  @Provides
-  DataManager provideDataManager(HttpHelper httpHelper) {
-    return new DataManager(httpHelper);
-  }
+    @Singleton
+    @Provides
+    DataManager provideDataManager(HttpHelper httpHelper) {
+        return new DataManager(httpHelper);
+    }
 }

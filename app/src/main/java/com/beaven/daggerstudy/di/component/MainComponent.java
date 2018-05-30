@@ -13,5 +13,5 @@ import dagger.Component;
 @Component(modules = MainModule.class, dependencies = AppComponent.class)
 public interface MainComponent {
 
-  void inject(MainActivity mainActivity);
+    void inject(MainActivity mainActivity);
 }

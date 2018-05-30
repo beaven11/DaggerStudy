@@ -9,31 +9,31 @@ import android.content.Context;
 
 public interface BaseContract {
 
-  interface View {
+    interface View {
 
-    void showToast(String msg);
+        void showToast(String msg);
 
-    void showContentEmpty();
+        void showContentEmpty();
 
-    void showContentError();
+        void showContentError();
 
-    void showLoading(String msg);
+        void showLoading(String msg);
 
-    void showContent();
+        void showContent();
 
-    Context getContext();
-  }
+        Context getContext();
+    }
 
-  interface Presenter {
+    interface Presenter {
 
-    void onCreate();
+        void onCreate();
 
-    void onResume();
+        void onResume();
 
-    void onPause();
+        void onPause();
 
-    void onDestroy();
+        void onDestroy();
 
-    Context getContext();
-  }
+        Context getContext();
+    }
 }

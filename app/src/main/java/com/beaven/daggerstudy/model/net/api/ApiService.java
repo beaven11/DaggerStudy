@@ -13,6 +13,6 @@ import retrofit2.http.Query;
 
 public interface ApiService {
 
-  @GET("toutiao/index")
-  Flowable<ApiResponse<NewsResult>> getNews(@Query("type") String type);
+    @GET("toutiao/index")
+    Flowable<ApiResponse<NewsResult>> getNews(@Query("type") String type);
 }

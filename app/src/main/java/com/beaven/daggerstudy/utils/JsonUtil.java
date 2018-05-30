@@ -10,7 +10,7 @@ import com.google.gson.GsonBuilder;
 
 public class JsonUtil {
 
-  public static final String DATE_FORMAT = "yyyy-MM-dd HH:mm";
+    public static final String DATE_FORMAT = "yyyy-MM-dd HH:mm";
 
-  public static final Gson gson = new GsonBuilder().setDateFormat(DATE_FORMAT).create();
+    public static final Gson gson = new GsonBuilder().setDateFormat(DATE_FORMAT).create();
 }

@@ -7,7 +7,6 @@ import butterknife.BindView;
 import com.beaven.daggerstudy.R;
 import com.beaven.daggerstudy.base.BaseRecyclerAdapter;
 import com.beaven.daggerstudy.base.BaseViewHolder;
-import com.beaven.daggerstudy.base.contract.MainContract;
 import com.beaven.daggerstudy.common.IPageControl;
 
 /**
@@ -17,30 +16,30 @@ import com.beaven.daggerstudy.common.IPageControl;
 
 public class NewsTypeAdapter extends BaseRecyclerAdapter<NewsType, NewsTypeAdapter.NewsTypeHolder> {
 
-  public NewsTypeAdapter(IPageControl pageControl) {
-    super(pageControl);
-  }
-
-  @Override
-  public NewsTypeHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-    return new NewsTypeHolder(R.layout.item_news_type, parent);
-  }
-
-  static class NewsTypeHolder extends BaseViewHolder<NewsType> {
-
-    @BindView(R.id.text_news_type_item)
-    TextView textItem;
-
-    public NewsTypeHolder(int layoutId, ViewGroup parent) {
-      super(layoutId, parent);
+    public NewsTypeAdapter(IPageControl pageControl) {
+        super(pageControl);
     }
 
     @Override
-    public void bindData(NewsType data, int position) {
-      if (TextUtils.isEmpty(data.getType())) {
-        return;
-      }
-      textItem.setText(data.getType());
+    public NewsTypeHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        return new NewsTypeHolder(R.layout.item_news_type, parent);
     }
-  }
+
+    static class NewsTypeHolder extends BaseViewHolder<NewsType> {
+
+        @BindView(R.id.text_news_type_item)
+        TextView textItem;
+
+        public NewsTypeHolder(int layoutId, ViewGroup parent) {
+            super(layoutId, parent);
+        }
+
+        @Override
+        public void bindData(NewsType data, int position) {
+            if (TextUtils.isEmpty(data.getType())) {
+                return;
+            }
+            textItem.setText(data.getType());
+        }
+    }
 }

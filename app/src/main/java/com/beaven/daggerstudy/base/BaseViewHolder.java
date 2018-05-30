@@ -13,14 +13,14 @@ import butterknife.ButterKnife;
 
 public abstract class BaseViewHolder<T> extends RecyclerView.ViewHolder {
 
-  public BaseViewHolder(int layoutId, ViewGroup parent) {
-    this(LayoutInflater.from(parent.getContext()).inflate(layoutId, parent, false));
-  }
+    public BaseViewHolder(int layoutId, ViewGroup parent) {
+        this(LayoutInflater.from(parent.getContext()).inflate(layoutId, parent, false));
+    }
 
-  public BaseViewHolder(View itemView) {
-    super(itemView);
-    ButterKnife.bind(this, itemView);
-  }
+    public BaseViewHolder(View itemView) {
+        super(itemView);
+        ButterKnife.bind(this, itemView);
+    }
 
-  public abstract void bindData(T data, int position);
+    public abstract void bindData(T data, int position);
 }

@@ -9,22 +9,22 @@ import java.util.List;
 
 public class NewsResult {
 
-  private String stat;
-  private List<NewsData> data;
+    private String stat;
+    private List<NewsData> data;
 
-  public String getStat() {
-    return stat;
-  }
+    public String getStat() {
+        return stat;
+    }
 
-  public void setStat(String stat) {
-    this.stat = stat;
-  }
+    public void setStat(String stat) {
+        this.stat = stat;
+    }
 
-  public List<NewsData> getNewsDataList() {
-    return data;
-  }
+    public List<NewsData> getNewsDataList() {
+        return data;
+    }
 
-  public void setNewsDataList(List<NewsData> data) {
-    this.data = data;
-  }
+    public void setNewsDataList(List<NewsData> data) {
+        this.data = data;
+    }
 }

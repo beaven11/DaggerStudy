@@ -1,7 +1,6 @@
 package com.beaven.daggerstudy.model.bean;
 
 import com.google.gson.annotations.SerializedName;
-
 import java.util.Date;
 
 /**
@@ -10,90 +9,90 @@ import java.util.Date;
  */
 
 public class NewsData {
-  @SerializedName("uniquekey")
-  private String uniqueKey;
-  private String title;
-  private Date date;
-  private String category;
-  @SerializedName("author_name")
-  private String authorName;
-  private String url;
-  @SerializedName("thumbnail_pic_s")
-  private String picOne;
-  @SerializedName("thumbnail_pic_s02")
-  private String picTwo;
-  @SerializedName("thumbnail_pic_s03")
-  private String picThree;
+    @SerializedName("uniquekey")
+    private String uniqueKey;
+    private String title;
+    private Date date;
+    private String category;
+    @SerializedName("author_name")
+    private String authorName;
+    private String url;
+    @SerializedName("thumbnail_pic_s")
+    private String picOne;
+    @SerializedName("thumbnail_pic_s02")
+    private String picTwo;
+    @SerializedName("thumbnail_pic_s03")
+    private String picThree;
 
-  public String getUniqueKey() {
-    return uniqueKey;
-  }
+    public String getUniqueKey() {
+        return uniqueKey;
+    }
 
-  public void setUniqueKey(String uniqueKey) {
-    this.uniqueKey = uniqueKey;
-  }
+    public void setUniqueKey(String uniqueKey) {
+        this.uniqueKey = uniqueKey;
+    }
 
-  public String getTitle() {
-    return title;
-  }
+    public String getTitle() {
+        return title;
+    }
 
-  public void setTitle(String title) {
-    this.title = title;
-  }
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-  public Date getDate() {
-    return date;
-  }
+    public Date getDate() {
+        return date;
+    }
 
-  public void setDate(Date date) {
-    this.date = date;
-  }
+    public void setDate(Date date) {
+        this.date = date;
+    }
 
-  public String getCategory() {
-    return category;
-  }
+    public String getCategory() {
+        return category;
+    }
 
-  public void setCategory(String category) {
-    this.category = category;
-  }
+    public void setCategory(String category) {
+        this.category = category;
+    }
 
-  public String getAuthorName() {
-    return authorName;
-  }
+    public String getAuthorName() {
+        return authorName;
+    }
 
-  public void setAuthorName(String authorName) {
-    this.authorName = authorName;
-  }
+    public void setAuthorName(String authorName) {
+        this.authorName = authorName;
+    }
 
-  public String getUrl() {
-    return url;
-  }
+    public String getUrl() {
+        return url;
+    }
 
-  public void setUrl(String url) {
-    this.url = url;
-  }
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
-  public String getPicOne() {
-    return picOne;
-  }
+    public String getPicOne() {
+        return picOne;
+    }
 
-  public void setPicOne(String picOne) {
-    this.picOne = picOne;
-  }
+    public void setPicOne(String picOne) {
+        this.picOne = picOne;
+    }
 
-  public String getPicTwo() {
-    return picTwo;
-  }
+    public String getPicTwo() {
+        return picTwo;
+    }
 
-  public void setPicTwo(String picTwo) {
-    this.picTwo = picTwo;
-  }
+    public void setPicTwo(String picTwo) {
+        this.picTwo = picTwo;
+    }
 
-  public String getPicThree() {
-    return picThree;
-  }
+    public String getPicThree() {
+        return picThree;
+    }
 
-  public void setPicThree(String picThree) {
-    this.picThree = picThree;
-  }
+    public void setPicThree(String picThree) {
+        this.picThree = picThree;
+    }
 }
